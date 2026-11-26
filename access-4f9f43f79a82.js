@@ -42,7 +42,7 @@ form.addEventListener('submit', async event => {
   button.textContent = 'Abriendo…'
   message.textContent = ''
   try {
-    const response = await fetch('./app.enc')
+    const response = await fetch('./' + document.documentElement.dataset.demoPayload)
     if (!response.ok) throw new Error('No se pudo descargar la demo.')
     const payload = new Uint8Array(await response.arrayBuffer())
     const data = await unlock(payload, value)
